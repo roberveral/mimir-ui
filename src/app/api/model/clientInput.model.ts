@@ -26,6 +26,6 @@ export interface ClientInput {
     /**
      * URL to the callback used in the Authorization Code flow.
      */
-    redirectUri: string;
+    redirect_uri: string;
 }
 

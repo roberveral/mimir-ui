@@ -22,6 +22,6 @@ export interface OAuthAuthorizeResponse {
     /**
      * URL of the client where the UI should redirect the user to complete the authorization flow. This url contains all the required query params.
      */
-    redirectUri: string;
+    redirect_uri: string;
 }
 

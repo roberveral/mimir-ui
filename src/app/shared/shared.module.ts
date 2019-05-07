@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatInputModule, MatButtonModule, MatFormFieldModule, MatCardModule, MatIconModule } from '@angular/material';
+import { MatInputModule, MatButtonModule, MatFormFieldModule, MatCardModule, MatIconModule, MatChipsModule } from '@angular/material';
+import { Configuration, ConfigurationParameters } from '../api';
 
 @NgModule({
   declarations: [],
@@ -14,7 +15,8 @@ import { MatInputModule, MatButtonModule, MatFormFieldModule, MatCardModule, Mat
     MatButtonModule,
     MatFormFieldModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    MatChipsModule
   ],
   exports: [
     FlexLayoutModule,
@@ -23,7 +25,16 @@ import { MatInputModule, MatButtonModule, MatFormFieldModule, MatCardModule, Mat
     MatButtonModule,
     MatFormFieldModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    MatChipsModule
   ]
 })
 export class SharedModule { }
+
+
+export function apiConfigFactory(): Configuration {
+  const params: ConfigurationParameters = {
+    accessToken: () => localStorage.getItem('authenticated_user_token')
+  };
+  return new Configuration(params);
+}

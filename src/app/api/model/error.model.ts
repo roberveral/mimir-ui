@@ -18,10 +18,10 @@ export interface ModelError {
     /**
      * Type of the error that has happened.
      */
-    errorType: string;
+    error_type: string;
     /**
      * Reason of the error that has happened.
      */
-    errorReason: string;
+    error_reason: string;
 }
 

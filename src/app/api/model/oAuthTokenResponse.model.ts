@@ -18,14 +18,14 @@ export interface OAuthTokenResponse {
     /**
      * Access token for the client and user, which can be used to access Resource Servers. It's a JWT token, which can be decoded with the Authorization Server public key.
      */
-    accessToken: string;
+    access_token: string;
     /**
      * The type of token this is, typically just the string “bearer”.
      */
-    tokenType: string;
+    token_type: string;
     /**
      * Time in seconds until token expiration.
      */
-    expiresIn: number;
+    expires_in: number;
 }
 

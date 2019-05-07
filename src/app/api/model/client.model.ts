@@ -18,11 +18,11 @@ export interface Client {
     /**
      * Unique identifier of the client, used for exchanging OAuth tokens.
      */
-    clientId: string;
+    client_id: string;
     /**
      * Randomly generated secret associated to the client, used for exchanging OAuth tokens.
      */
-    clientSecret: string;
+    client_secret: string;
     /**
      * Name of the client (for instance the application name).
      */
@@ -34,7 +34,7 @@ export interface Client {
     /**
      * URL to the callback used in the Authorization Code flow.
      */
-    redirectUri: string;
+    redirect_uri: string;
     /**
      * User who registered the client.
      */

@@ -15,7 +15,7 @@ export interface OAuthTokenInput {
     /**
      * The grant type for the Authentication Flow required.
      */
-    grantType: OAuthTokenInput.GrantTypeEnum;
+    grant_type: OAuthTokenInput.GrantTypeEnum;
     /**
      * Authorization Code received by the Authorize phase. (Authorization Code Flow - REQUIRED)
      */
@@ -23,15 +23,15 @@ export interface OAuthTokenInput {
     /**
      * Must be identical to the redirect URI used in the Authorization phase. (Authorization Code Flow - REQUIRED)
      */
-    redirectUri?: string;
+    redirect_uri?: string;
     /**
      * Unique identifier of the client that requests the access token.
      */
-    clientId: string;
+    client_id: string;
     /**
      * The client’s secret. This ensures that the request to get the access token is made only from the client. (Authorization Code and Client Credentials Flows - REQUIRED)
      */
-    clientSecret?: string;
+    client_secret?: string;
     /**
      * The user’s username that they entered in the client application. (Password Flow - REQUIRED)
      */

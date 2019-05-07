@@ -1,0 +1,20 @@
+<mat-card>
+  <mat-card-content fxLayout="column" fxLayoutAlign="center" fxLayoutGap="1rem">
+    <img class="circle" src="https://www.w3schools.com/howto/img_avatar.png" alt="avatar">
+    <form fxLayout="column" [formGroup]="loginForm">
+      <mat-form-field appearance="outline">
+        <mat-label>User ID</mat-label>
+        <input matInput formControlName="username">
+        <mat-error *ngIf="this.loginForm.get('username').invalid">You should provide a User ID</mat-error>
+      </mat-form-field>
+    
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" [type]="hidePassword ? 'password' : 'text'">
+        <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <mat-error *ngIf="this.loginForm.get('password').invalid">You should provide a Password</mat-error>
+      </mat-form-field>
+      <button mat-raised-button (click)="login()" color="primary" [disabled]="this.loginForm.invalid">Login</button>
+    </form>
+  </mat-card-content>
+</mat-card>

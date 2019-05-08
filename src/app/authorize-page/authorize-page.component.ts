@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OAuth20Service, ModelError } from '../api';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { mergeMap } from 'rxjs/operators';
 import { EMPTY } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -15,15 +15,13 @@ export class AuthorizePageComponent implements OnInit {
   private error: ModelError;
 
   constructor(private oauthService: OAuth20Service,
-              private route: ActivatedRoute) { }
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.queryParams.pipe(mergeMap(params => {
-      if (!params.hasOwnProperty('client_id')) {
-        this.error = {
-          error_type: 'InvalidParameters',
-          error_reason: 'client_id query parameter must be specified'
-        };
+      if (!this.validateQueryParam(params, 'response_type') ||
+        !this.validateQueryParam(params, 'client_id') ||
+        !this.validateQueryParam(params, 'redirect_uri')) {
         return EMPTY;
       }
       return this.oauthService.authorizeOAuthClient(
@@ -44,6 +42,17 @@ export class AuthorizePageComponent implements OnInit {
         this.error = error.error;
       }
     );
+  }
+
+  private validateQueryParam(params: Params, paramName: string): boolean {
+    if (!params.hasOwnProperty(paramName)) {
+      this.error = {
+        error_type: 'InvalidParameters',
+        error_reason: `${paramName} query parameter must be specified`
+      };
+      return false;
+    }
+    return true;
   }
 
 }

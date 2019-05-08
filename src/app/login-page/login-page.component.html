@@ -1,3 +1,4 @@
 <div class="background" fxLayout fxFill fxLayoutAlign="center center">
-  <app-login-form class="login-box" (authenticated)="onUserAuthenticated($event)"></app-login-form>
+  <app-login-form (authenticated)="onUserAuthenticated($event)" class="login-box" fxFlex.lt-sm="80" fxFlex.sm="50"
+    fxFlex.md="40" fxFlex.gt-md="30"></app-login-form>
 </div>

@@ -1,0 +1,12 @@
+<div class="background" fxLayout fxFill fxLayoutAlign="center center">
+  <mat-card fxFlex.lt-sm="80" fxFlex.sm="50" fxFlex.md="40" fxFlex.gt-md="30">
+    <div *ngIf="!error" class="checking" fxLayout="column" fxLayoutAlign="center center">
+      <mat-spinner></mat-spinner>
+      <h3>Checking authorization...</h3>
+    </div>
+    <div *ngIf="error" class="error" fxLayout="column" fxLayoutAlign="center center">
+      <h1>Oops!</h1>
+      <p class="error-reason">{{error.error_reason}}</p>
+    </div>
+  </mat-card>
+</div>

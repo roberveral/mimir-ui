@@ -1,0 +1,21 @@
+.background {
+    background-color: rgb(23, 88, 172);
+}
+
+.checking {
+    text-align: center;
+    color: rgb(23, 88, 172);
+}
+
+.checking ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: rgb(23, 88, 172);
+}
+
+.error {
+    color: rgb(202, 32, 32);
+    text-align: center;
+}
+
+.error-reason {
+    color: black;
+}

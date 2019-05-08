@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class LoginPageComponent implements OnInit {
 
   constructor(private activeRoute: ActivatedRoute,
-    private router: Router) { }
+              private router: Router) { }
 
   ngOnInit() {
   }
@@ -19,7 +19,7 @@ export class LoginPageComponent implements OnInit {
       this.activeRoute.queryParams.subscribe(params => {
         const redirectUrl = params.returnUrl || '/';
 
-        this.router.navigate([redirectUrl]);
+        this.router.navigateByUrl(decodeURI(redirectUrl));
       });
     }
   }

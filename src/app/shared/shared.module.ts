@@ -2,7 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatInputModule, MatButtonModule, MatFormFieldModule, MatCardModule, MatIconModule, MatChipsModule } from '@angular/material';
+import {
+  MatInputModule,
+  MatButtonModule,
+  MatFormFieldModule,
+  MatCardModule,
+  MatIconModule,
+  MatChipsModule,
+  MatProgressSpinnerModule
+} from '@angular/material';
 import { Configuration, ConfigurationParameters } from '../api';
 
 @NgModule({
@@ -16,7 +24,8 @@ import { Configuration, ConfigurationParameters } from '../api';
     MatFormFieldModule,
     MatCardModule,
     MatIconModule,
-    MatChipsModule
+    MatChipsModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     FlexLayoutModule,
@@ -26,7 +35,8 @@ import { Configuration, ConfigurationParameters } from '../api';
     MatFormFieldModule,
     MatCardModule,
     MatIconModule,
-    MatChipsModule
+    MatChipsModule,
+    MatProgressSpinnerModule
   ]
 })
 export class SharedModule { }

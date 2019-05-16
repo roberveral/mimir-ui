@@ -20,9 +20,9 @@ export interface Client {
      */
     client_id: string;
     /**
-     * Randomly generated secret associated to the client, used for exchanging OAuth tokens.
+     * Randomly generated secret associated to the client, used for exchanging OAuth tokens. Only returned when the request caller is the owner.
      */
-    client_secret: string;
+    client_secret?: string;
     /**
      * Name of the client (for instance the application name).
      */
@@ -36,8 +36,24 @@ export interface Client {
      */
     redirect_uri: string;
     /**
+     * URL to the Application image logo.
+     */
+    logo?: string;
+    /**
+     * The OAuth grant types that the client is allowed to use in order to obtain an access token. Only returned when the request caller is the owner.
+     */
+    grant_types?: Array<Client.GrantTypesEnum>;
+    /**
      * User who registered the client.
      */
     owner: string;
+}
+export namespace Client {
+    export type GrantTypesEnum = 'authorization_code' | 'password' | 'client_credentials';
+    export const GrantTypesEnum = {
+        AuthorizationCode: 'authorization_code' as GrantTypesEnum,
+        Password: 'password' as GrantTypesEnum,
+        ClientCredentials: 'client_credentials' as GrantTypesEnum
+    };
 }
 

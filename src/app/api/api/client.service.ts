@@ -108,8 +108,8 @@ export class ClientService {
     }
 
     /**
-     * Obtains all the visible clients registered in the Authorization Server.
-     * This endpoint allows to obtain all the clients registered in the Authorization Server which are visible to the user who performs the call, that is, the clients owned (created) by this user. 
+     * Obtains all the clients registered in the Authorization Server.
+     * This endpoint allows to obtain all the clients registered in the Authorization Server which are owned by the user who performs the call, that is, the clients created by this user. 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
@@ -152,7 +152,7 @@ export class ClientService {
 
     /**
      * Obtains the client with the given client_id.
-     * This endpoint allows to obtain the information about the client registered with the given client_id. It returns the client_secret, so it can be queried after client registration. To ensure that the user has permission to see the client_secret, only the client owner is allowed to query the client information. 
+     * This endpoint allows to obtain the information about the client registered with the given client_id. Sensitive information like the &#39;client_secret&#39; and the &#39;grant_types&#39; is only returned when the call is made by the client&#39;s owner. 
      * @param clientId Unique client_id associated to the client.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -199,7 +199,7 @@ export class ClientService {
 
     /**
      * Registers a new client in the Authorization Server.
-     * This endpoint allows to register a new client in the Authorization Server. When the client is registered, random \&quot;client_id\&quot; and \&quot;client_secret\&quot; are generated for the client so it can perform the OAuth Authorization flows. The user who performs the client registration are set as owner, so it&#39;s the only one who can query the client and its associated secret. 
+     * This endpoint allows to register a new client in the Authorization Server. When the client is registered, random \&quot;client_id\&quot; and \&quot;client_secret\&quot; are generated for the client so it can perform the OAuth Authorization flows. The user who performs the client registration are set as owner, so it&#39;s the only one who can query the client and its associated secret. It&#39;s mandatory to specify which OAuth grant types the client is going to use. Clients are not allowed to use other grant types different than the registered ones. 
      * @param clientInput Definition of the client to register.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.

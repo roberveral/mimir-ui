@@ -16,7 +16,7 @@
  */
 export interface OAuthAuthorizeResponse { 
     /**
-     * Authorization Code sent to the callback so it can be used to obtain an access token. Contents are encrypted so only the Authorization Server can access the token information.
+     * Authorization Code sent to the callback so it can be used to obtain an access token. Token is encrypted so only the Authorization Server can access the token information.
      */
     code: string;
     /**

@@ -29,7 +29,7 @@ export interface OAuthTokenInput {
      */
     client_id: string;
     /**
-     * The client’s secret. This ensures that the request to get the access token is made only from the client. (Authorization Code and Client Credentials Flows - REQUIRED)
+     * The client’s secret. This ensures that the request to get the access token is made only from the client. (Authorization Code Flow - OPTIONAL, Client Credentials Flow - REQUIRED)
      */
     client_secret?: string;
     /**
@@ -40,6 +40,10 @@ export interface OAuthTokenInput {
      * The user’s password that they entered in the client application. (Password Flow - REQUIRED)
      */
     password?: string;
+    /**
+     * The code verifier for the PKCE request that the app originally generated before the authorization request. (Authorization Code Flow - OPTIONAL)
+     */
+    code_verifier?: string;
     /**
      * One or more scope values indicating which parts of the user's account the client wish to access. (Password and Client Credentials Flows - OPTIONAL)
      */

@@ -27,5 +27,21 @@ export interface ClientInput {
      * URL to the callback used in the Authorization Code flow.
      */
     redirect_uri: string;
+    /**
+     * URL to the Application image logo.
+     */
+    logo?: string;
+    /**
+     * The OAuth grant types that the client is allowed to use in order to obtain an access token.
+     */
+    grant_types: Array<ClientInput.GrantTypesEnum>;
+}
+export namespace ClientInput {
+    export type GrantTypesEnum = 'authorization_code' | 'password' | 'client_credentials';
+    export const GrantTypesEnum = {
+        AuthorizationCode: 'authorization_code' as GrantTypesEnum,
+        Password: 'password' as GrantTypesEnum,
+        ClientCredentials: 'client_credentials' as GrantTypesEnum
+    };
 }
 

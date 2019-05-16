@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { AuthenticationService } from './api/authentication.service';
 import { ClientService } from './api/client.service';
-import { OAuth20Service } from './api/oAuth20.service';
+import { OAuthService } from './api/oAuth.service';
 
 @NgModule({
   imports:      [],
@@ -14,7 +14,7 @@ import { OAuth20Service } from './api/oAuth20.service';
   providers: [
     AuthenticationService,
     ClientService,
-    OAuth20Service ]
+    OAuthService ]
 })
 export class ApiModule {
     public static forRoot(configurationFactory: () => Configuration): ModuleWithProviders {

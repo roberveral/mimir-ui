@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OAuth20Service, ModelError } from '../api';
+import { OAuthService, ModelError } from '../api';
 import { ActivatedRoute, Params } from '@angular/router';
 import { mergeMap } from 'rxjs/operators';
 import { EMPTY } from 'rxjs';
@@ -14,8 +14,8 @@ export class AuthorizePageComponent implements OnInit {
 
   private error: ModelError;
 
-  constructor(private oauthService: OAuth20Service,
-    private route: ActivatedRoute) { }
+  constructor(private oauthService: OAuthService,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.queryParams.pipe(mergeMap(params => {

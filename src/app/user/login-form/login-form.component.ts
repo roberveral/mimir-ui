@@ -10,10 +10,10 @@ import { ModelError } from 'src/app/api';
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
-  
+
   private loginForm: FormGroup;
 
-  private hidePassword: boolean = true;
+  private hidePassword = true;
 
   private error: ModelError;
 
@@ -34,7 +34,7 @@ export class LoginFormComponent implements OnInit {
   onSubmit(formDirective: FormGroupDirective) {
     this.inProgress = true;
     this.error = null;
-    
+
     this.userService.login(this.loginForm.value)
       .subscribe(
         user => {

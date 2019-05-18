@@ -10,7 +10,11 @@ import {
   MatIconModule,
   MatChipsModule,
   MatProgressSpinnerModule,
-  MatDividerModule
+  MatDividerModule,
+  MatStepperModule,
+  MatButtonToggleModule,
+  MatCheckboxModule,
+  MatTooltipModule
 } from '@angular/material';
 import { Configuration, ConfigurationParameters } from '../api';
 
@@ -27,7 +31,11 @@ import { Configuration, ConfigurationParameters } from '../api';
     MatIconModule,
     MatChipsModule,
     MatProgressSpinnerModule,
-    MatDividerModule
+    MatDividerModule,
+    MatStepperModule,
+    MatButtonToggleModule,
+    MatCheckboxModule,
+    MatTooltipModule
   ],
   exports: [
     FlexLayoutModule,
@@ -39,7 +47,11 @@ import { Configuration, ConfigurationParameters } from '../api';
     MatIconModule,
     MatChipsModule,
     MatProgressSpinnerModule,
-    MatDividerModule
+    MatDividerModule,
+    MatStepperModule,
+    MatButtonToggleModule,
+    MatCheckboxModule,
+    MatTooltipModule
   ]
 })
 export class SharedModule { }

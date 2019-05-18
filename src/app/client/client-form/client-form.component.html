@@ -1,0 +1,61 @@
+<form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+    <mat-vertical-stepper formArrayName="steps" linear>
+      <mat-step formGroupName="0" [stepControl]="clientForm.get('steps').get([0])" errorMessage="Missing required parameters">
+        <ng-template matStepLabel>Client properties</ng-template>
+        <div fxLayout="column" fxLayoutGap="0.5rem">
+          <mat-form-field appearance="outline">
+            <mat-label>Client Name</mat-label>
+            <input matInput formControlName="name" required>
+            <mat-hint>Pick a representative name!</mat-hint>
+            <mat-error *ngIf="this.clientForm.get('steps').get([0]).get('name').hasError('required')">You must provide a Client name</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Homepage</mat-label>
+            <input matInput placeholder="https://" formControlName="url" type="url" pattern="https?://.+" required url>
+            <mat-hint>URL of the client site</mat-hint>
+            <mat-error *ngIf="this.clientForm.get('steps').get([0]).get('url').hasError('required')">You must provide a homepage</mat-error>
+            <mat-error *ngIf="this.clientForm.get('steps').get([0]).get('url').hasError('pattern')">You must provide a valid URL</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Logo</mat-label>
+            <input matInput placeholder="https://" formControlName="logo" pattern="https?://.+" type="url" url>
+            <mat-hint>URL of the client logo</mat-hint>
+            <mat-error *ngIf="this.clientForm.get('steps').get([0]).get('logo').hasError('pattern')">You must provide a valid URL</mat-error>
+          </mat-form-field>
+          <div fxLayoutAlign="end">
+            <button mat-mini-fab color="primary" matStepperNext type="button" [disabled]="clientForm.get('steps').get([0]).invalid"><mat-icon>navigate_next</mat-icon></button>
+          </div>
+        </div>
+      </mat-step>
+      <mat-step formGroupName="1" [stepControl]="clientForm.get('steps').get([1])" errorMessage="Missing required parameters">
+        <ng-template matStepLabel>OAuth Configuration</ng-template>
+
+        <div fxLayout="column" fxLayoutGap="0.5rem">
+          <mat-form-field appearance="outline">
+            <mat-label>Redirect URI</mat-label>
+            <input matInput placeholder="https://" formControlName="redirect_uri" type="url" pattern="https?://.+" required url>
+            <mat-hint>Callback used for the Authorization Code flow</mat-hint>
+            <mat-error *ngIf="this.clientForm.get('steps').get([1]).get('redirect_uri').hasError('required')">You must provide a redirect URI</mat-error>
+            <mat-error *ngIf="this.clientForm.get('steps').get([1]).get('redirect_uri').hasError('pattern')">You must provide a valid URL</mat-error>
+          </mat-form-field>
+
+          <h4>What Grant Types does the client require?</h4>
+          <div formArrayName="grant_types" *ngFor="let grantType of grantTypes; let i = index" >
+            <mat-checkbox [formControlName]="i">
+              {{grantType.name}}
+              <a [href]="grantType.infoURL" target="_blank"><mat-icon [matTooltip]="grantType.description">info</mat-icon></a>
+            </mat-checkbox>
+          </div>
+
+          <div fxFlex fxLayout="row" fxLayoutAlign="end center">
+            <button mat-fab color="primary" type="submit" [disabled]="inProgress || clientForm.invalid"><mat-icon>add</mat-icon></button>
+          </div>
+          <mat-chip-list fxLayoutAlign="center" selectable=false>
+            <mat-chip class="error-message" *ngIf="error">
+              <mat-icon>error_outline</mat-icon> {{error.error_reason}}
+            </mat-chip>
+          </mat-chip-list>
+        </div>
+      </mat-step>
+    </mat-vertical-stepper>
+  </form>

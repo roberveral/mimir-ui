@@ -10,6 +10,8 @@ import { UserModule } from './user/user.module';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { AuthorizePageComponent } from './authorize-page/authorize-page.component';
 import { ApiModule } from './api';
+import { ClientModule } from './client/client.module';
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 
 @NgModule({
   declarations: [
@@ -24,9 +26,15 @@ import { ApiModule } from './api';
     HttpClientModule,
     SharedModule,
     UserModule,
+    ClientModule,
     ApiModule.forRoot(apiConfigFactory)
   ],
-  providers: [],
+  providers: [
+    {
+      provide: STEPPER_GLOBAL_OPTIONS,
+      useValue: { showError: true }
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

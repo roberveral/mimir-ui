@@ -1,0 +1,20 @@
+<div fxLayout="row" fxLayout.lt-sm="column">
+
+  <div fxFlex fxLayoutAlign="center center">
+    <mat-form-field class="field" appearance="outline">
+      <mat-label>Redirect URI</mat-label>
+      <input matInput type="url" [value]="client.redirect_uri" readonly>
+    </mat-form-field>
+  </div>
+
+  <div fxFlex fxLayoutAlign="center center">
+    <mat-list>
+      <h3 mat-subheader>Grant types</h3>
+      <mat-list-item *ngFor="let grant of client.grant_types">
+        <mat-icon mat-list-icon>verified_user</mat-icon>
+        <h4 mat-line>{{grant}}</h4>
+      </mat-list-item>
+    </mat-list>
+  </div>
+
+</div>

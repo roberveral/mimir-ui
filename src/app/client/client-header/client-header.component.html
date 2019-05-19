@@ -1,0 +1,26 @@
+<div fxLayout="row" fxLayoutAlign="start center">
+
+  <div class="logo-container" fxFlex="20" fxFlex.lt-sm="33" fxLayoutAlign="center center">
+    <!-- Client logo block -->
+    <img class="circle" [src]="getLogo()" alt="avatar">
+  </div>
+
+  <div fxFlex="60" fxFlex.lt-sm="33" fxLayout="column" fxLayoutAlign="center start">
+    <!-- Client info block -->
+    <div fxFlex>
+      <!-- Client name block -->
+      <h1>{{client.name.toUpperCase()}}</h1>
+    </div>
+    <div fxFlex fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="0.5rem">
+      <!-- Client owner block -->
+      <mat-chip-list selectable=false>
+        <mat-chip color="primary"><mat-icon>person</mat-icon> {{client.owner}}</mat-chip>
+      </mat-chip-list>
+    </div>
+  </div>
+
+  <div fxFlex="20" fxFlex.lt-sm="33" fxLayoutAlign="center center">
+    <!-- Client url block -->
+    <a mat-raised-button color="accent" [href]="client.url" target="_blank">SITE <mat-icon>open_in_new</mat-icon></a>
+  </div>
+</div>

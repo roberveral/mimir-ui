@@ -14,7 +14,9 @@ import {
   MatStepperModule,
   MatButtonToggleModule,
   MatCheckboxModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatListModule,
+  MatExpansionModule
 } from '@angular/material';
 import { Configuration, ConfigurationParameters } from '../api';
 
@@ -35,7 +37,8 @@ import { Configuration, ConfigurationParameters } from '../api';
     MatStepperModule,
     MatButtonToggleModule,
     MatCheckboxModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatListModule
   ],
   exports: [
     FlexLayoutModule,
@@ -51,7 +54,9 @@ import { Configuration, ConfigurationParameters } from '../api';
     MatStepperModule,
     MatButtonToggleModule,
     MatCheckboxModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatListModule,
+    MatExpansionModule
   ]
 })
 export class SharedModule { }

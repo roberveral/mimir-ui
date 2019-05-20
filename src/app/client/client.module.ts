@@ -7,9 +7,17 @@ import { ClientHeaderComponent } from './client-header/client-header.component';
 import { ClientCredentialsComponent } from './client-credentials/client-credentials.component';
 import { ClientOauthPropertiesComponent } from './client-oauth-properties/client-oauth-properties.component';
 import { ClientPanelComponent } from './client-panel/client-panel.component';
+import { ClientListComponent } from './client-list/client-list.component';
 
 @NgModule({
-  declarations: [ClientFormComponent, ClientHeaderComponent, ClientCredentialsComponent, ClientOauthPropertiesComponent, ClientPanelComponent],
+  declarations: [
+    ClientFormComponent,
+    ClientHeaderComponent,
+    ClientCredentialsComponent,
+    ClientOauthPropertiesComponent,
+    ClientPanelComponent,
+    ClientListComponent
+  ],
   imports: [
     CommonModule,
     SharedModule,
@@ -20,7 +28,8 @@ import { ClientPanelComponent } from './client-panel/client-panel.component';
     ClientHeaderComponent,
     ClientCredentialsComponent,
     ClientOauthPropertiesComponent,
-    ClientPanelComponent
+    ClientPanelComponent,
+    ClientListComponent
   ]
 })
 export class ClientModule { }

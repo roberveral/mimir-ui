@@ -4,10 +4,13 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { AuthorizePageComponent } from './authorize-page/authorize-page.component';
 import { AuthGuard } from './shared/auth.guard';
 import { NoAuthGuard } from './shared/no-auth.guard';
-import { ClientFormComponent } from './client/client-form/client-form.component';
+import { ClientsPageComponent } from './clients-page/clients-page.component';
+import { ClientRegisterPageComponent } from './client-register-page/client-register-page.component';
 
 const routes: Routes = [
-  { path: '', component: ClientFormComponent, canActivate: [AuthGuard] },
+  { path: '', component: ClientsPageComponent, canActivate: [AuthGuard] },
+  { path: 'clients', component: ClientsPageComponent, canActivate: [AuthGuard] },
+  { path: 'clients/new', component: ClientRegisterPageComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginPageComponent, canActivate: [NoAuthGuard] },
   { path: 'oauth/authorize', component: AuthorizePageComponent, canActivate: [AuthGuard] }
 ];

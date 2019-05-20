@@ -12,12 +12,16 @@ import { AuthorizePageComponent } from './authorize-page/authorize-page.componen
 import { ApiModule } from './api';
 import { ClientModule } from './client/client.module';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import { ClientsPageComponent } from './clients-page/clients-page.component';
+import { ClientRegisterPageComponent } from './client-register-page/client-register-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
-    AuthorizePageComponent
+    AuthorizePageComponent,
+    ClientsPageComponent,
+    ClientRegisterPageComponent
   ],
   imports: [
     BrowserModule,

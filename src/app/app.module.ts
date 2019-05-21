@@ -14,14 +14,18 @@ import { ClientModule } from './client/client.module';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { ClientsPageComponent } from './clients-page/clients-page.component';
 import { ClientRegisterPageComponent } from './client-register-page/client-register-page.component';
+import { NavComponent } from './nav/nav.component';
+import { NavLayoutComponent } from './nav-layout/nav-layout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    NavComponent,
     LoginPageComponent,
     AuthorizePageComponent,
     ClientsPageComponent,
-    ClientRegisterPageComponent
+    ClientRegisterPageComponent,
+    NavLayoutComponent
   ],
   imports: [
     BrowserModule,

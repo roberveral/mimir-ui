@@ -6,11 +6,31 @@ import { AuthGuard } from './shared/auth.guard';
 import { NoAuthGuard } from './shared/no-auth.guard';
 import { ClientsPageComponent } from './clients-page/clients-page.component';
 import { ClientRegisterPageComponent } from './client-register-page/client-register-page.component';
+import { NavLayoutComponent } from './nav-layout/nav-layout.component';
 
 const routes: Routes = [
-  { path: '', component: ClientsPageComponent, canActivate: [AuthGuard] },
-  { path: 'clients', component: ClientsPageComponent, canActivate: [AuthGuard] },
-  { path: 'clients/new', component: ClientRegisterPageComponent, canActivate: [AuthGuard] },
+  {
+    path: '', component: NavLayoutComponent,
+    children: [
+      { path: '', component: ClientsPageComponent },
+    ],
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'clients',
+    component: NavLayoutComponent,
+    children: [
+      { path: '', component: ClientsPageComponent },
+    ],
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'clients/new', component: NavLayoutComponent,
+    children: [
+      { path: '', component: ClientRegisterPageComponent },
+    ],
+    canActivate: [AuthGuard]
+  },
   { path: 'login', component: LoginPageComponent, canActivate: [NoAuthGuard] },
   { path: 'oauth/authorize', component: AuthorizePageComponent, canActivate: [AuthGuard] }
 ];

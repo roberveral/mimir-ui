@@ -10,7 +10,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class ClientFormComponent implements OnInit {
 
-  private grantTypes = [{
+  grantTypes = [{
     name: "Authorization Code",
     value: "authorization_code",
     infoURL: "https://www.oauth.com/oauth2-servers/server-side-apps/authorization-code/",
@@ -29,11 +29,11 @@ export class ClientFormComponent implements OnInit {
     description: "Client uses its credentials to obtain an access token to act on its own behalf"
   }]
 
-  private clientForm: FormGroup;
+  clientForm: FormGroup;
 
-  private inProgress = false;
+  inProgress = false;
 
-  private error: ModelError;
+  error: ModelError;
 
   @Output() clientRegistered = new EventEmitter<Client>();
 
@@ -54,7 +54,6 @@ export class ClientFormComponent implements OnInit {
         })
       ])
     });
-    
   }
 
   onSubmit() {

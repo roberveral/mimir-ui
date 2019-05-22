@@ -9,13 +9,14 @@ import { SharedModule, apiConfigFactory } from './shared/shared.module';
 import { UserModule } from './user/user.module';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { AuthorizePageComponent } from './authorize-page/authorize-page.component';
-import { ApiModule } from './api';
+import { ApiModule, BASE_PATH } from './api';
 import { ClientModule } from './client/client.module';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { ClientsPageComponent } from './clients-page/clients-page.component';
 import { ClientRegisterPageComponent } from './client-register-page/client-register-page.component';
 import { NavComponent } from './nav/nav.component';
 import { NavLayoutComponent } from './nav-layout/nav-layout.component';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,10 @@ import { NavLayoutComponent } from './nav-layout/nav-layout.component';
     {
       provide: STEPPER_GLOBAL_OPTIONS,
       useValue: { showError: true }
+    },
+    {
+      provide: BASE_PATH,
+      useValue: environment.apiBasePath
     }
   ],
   bootstrap: [AppComponent]

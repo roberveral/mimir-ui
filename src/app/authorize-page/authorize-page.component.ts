@@ -12,7 +12,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class AuthorizePageComponent implements OnInit {
 
-  private error: ModelError;
+  error: ModelError;
 
   constructor(private oauthService: OAuthService,
               private route: ActivatedRoute) { }

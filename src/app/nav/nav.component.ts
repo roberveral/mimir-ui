@@ -22,7 +22,7 @@ export class NavComponent {
   isExpanded = false;
 
   constructor(private breakpointObserver: BreakpointObserver,
-              private userService: UserService,
+              public userService: UserService,
               private router: Router) {
     this.isHandset$.subscribe(value => { this.shouldToggle = value; });
   }

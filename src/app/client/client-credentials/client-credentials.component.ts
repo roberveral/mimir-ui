@@ -10,7 +10,7 @@ export class ClientCredentialsComponent implements OnInit {
 
   @Input() client: Client;
 
-  private hideSecret = true;
+  hideSecret = true;
 
   constructor() { }
 

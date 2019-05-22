@@ -10,6 +10,8 @@ export class ClientPanelComponent implements OnInit {
 
   @Input() client: Client;
 
+  expanded = false;
+
   constructor() { }
 
   ngOnInit() {

@@ -11,13 +11,13 @@ import { ModelError } from 'src/app/api';
 })
 export class LoginFormComponent implements OnInit {
 
-  private loginForm: FormGroup;
+  loginForm: FormGroup;
 
-  private hidePassword = true;
+  hidePassword = true;
 
-  private error: ModelError;
+  error: ModelError;
 
-  private inProgress = false;
+  inProgress = false;
 
   @Output() authenticated = new EventEmitter<boolean>();
 

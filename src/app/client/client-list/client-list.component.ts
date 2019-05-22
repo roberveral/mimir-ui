@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class ClientListComponent implements OnInit {
 
-  private clientStream: Observable<Client[]>;
+  clientStream: Observable<Client[]>;
 
   constructor(private clientService: ClientService) { }
 

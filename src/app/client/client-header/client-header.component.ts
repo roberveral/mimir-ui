@@ -16,6 +16,6 @@ export class ClientHeaderComponent implements OnInit {
   }
 
   getLogo(): string {
-    return this.client.logo || 'https://cdn-images-1.medium.com/max/672/1*UfrfhbhfeeA-lPvhy0s7QQ.png';
+    return this.client.logo || 'assets/images/unknown_app.png';
   }
 }

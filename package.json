@@ -1,5 +1,5 @@
 {
-  "name": "oauth-server-ui",
+  "name": "mimir-ui",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

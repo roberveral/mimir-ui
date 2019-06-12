@@ -9,12 +9,12 @@
     <!-- Client info block -->
     <div fxFlex>
       <!-- Client name block -->
-      <h1>{{client.name.toUpperCase()}}</h1>
+      <h1 class="client-name">{{client.name.toUpperCase()}}</h1>
     </div>
     <div fxFlex fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="0.5rem">
       <!-- Client owner block -->
       <mat-chip-list selectable=false>
-        <mat-chip color="primary"><mat-icon>person</mat-icon> {{client.owner}}</mat-chip>
+        <mat-chip color="primary">{{client.owner}} <mat-icon color="primary">verified_user</mat-icon></mat-chip>
       </mat-chip-list>
     </div>
   </div>

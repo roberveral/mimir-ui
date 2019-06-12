@@ -1,10 +1,27 @@
-.circle {
-  border-radius: 50%;
-  width: 5rem;
-  margin: auto;
-}
-
 .error-message {
   color: red;
   background-color: lightpink;
+}
+
+.login-form-header {
+  padding: 0.5rem;
+  padding-left: 1rem;
+  background-color: rgb(232, 232, 232);
+  color: grey;
+}
+
+.login-form-body {
+  padding: 0.5rem;
+}
+
+.organization {
+  color: rgb(23, 88, 172);
+}
+
+h1 {
+  font-weight: 300;
+}
+
+.main-card {
+  padding: 0;
 }

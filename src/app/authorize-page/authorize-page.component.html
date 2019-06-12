@@ -1,12 +1,27 @@
 <div class="background" fxLayout fxFill fxLayoutAlign="center center">
-  <mat-card fxFlex.lt-sm="80" fxFlex.sm="50" fxFlex.md="40" fxFlex.gt-md="30">
-    <div *ngIf="!error" class="checking" fxLayout="column" fxLayoutAlign="center center">
-      <mat-spinner></mat-spinner>
-      <h3>Checking authorization...</h3>
+  <mat-card class="main-card" fxFlex.lt-sm="80" fxFlex.sm="50" fxFlex.md="40" fxFlex.gt-md="30">
+    <div fxLayout="row" fxLayoutAlign="begin center" fxLayoutGap="0.5rem" class="authorize-header">
+      <img src="assets/images/gopher-icon.png" alt="mimir icon"/>
+      <span>Authorize client in Mimir</span>
     </div>
-    <div *ngIf="error" class="error" fxLayout="column" fxLayoutAlign="center center">
-      <h1>Oops!</h1>
-      <p class="error-reason">{{error.error_reason}}</p>
-    </div>
+    <mat-card-content fxLayout="column" fxLayoutAlign="center" fxLayoutGap="1rem" class="authorize-body mat-elevation-z8">
+      <div *ngIf="!error" class="checking" fxLayout="column" fxLayoutAlign="center center">
+        <mat-spinner strokeWidth="3.2"></mat-spinner>
+        <h1>Checking authorization...</h1>
+      </div>
+      <div *ngIf="error" class="error-body" fxLayout="column">
+        <h1 class="error-heading"><mat-icon inline="true">error_outline</mat-icon> Oops!</h1>
+        <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="0.5rem">
+          <div fxFlex fxLayout="column" fxLayoutAlign="center center">
+            <h5 class="error-display-heading">Type</h5>
+            <span class="error-display-value">{{error.error_type}}</span>
+          </div>
+          <div fxFlex fxLayout="column" fxLayoutAlign="center center">
+            <h5 class="error-display-heading">Reason</h5>
+            <span class="error-display-value">{{error.error_reason}}</span>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
   </mat-card>
 </div>

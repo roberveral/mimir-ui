@@ -1,14 +1,21 @@
-<mat-card>
-  <mat-card-content fxLayout="column" fxLayoutAlign="center" fxLayoutGap="1rem">
-    <img class="circle" src="https://www.w3schools.com/howto/img_avatar.png" alt="avatar">
+<mat-card class="main-card">
+  <div fxLayout="row" fxLayoutAlign="begin center" fxLayoutGap="0.5rem" class="login-form-header">
+    <img src="assets/images/gopher-icon.png" alt="mimir icon"/>
+    <span>Sign in with Mimir</span>
+  </div>
+  <mat-card-content fxLayout="column" fxLayoutAlign="center" fxLayoutGap="1rem" class="login-form-body mat-elevation-z8">
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <h1>Sign in to <span class="organization">{{organizationName}}</span></h1>
+      <span>Introduce your credentials</span>
+    </div>
     <form fxLayout="column" fxLayoutGap="0.5rem" [formGroup]="loginForm" #formDirective="ngForm" (ngSubmit)="onSubmit(formDirective)">
       <mat-form-field appearance="outline">
-        <mat-label>User ID</mat-label>
+        <mat-label>Introduce your User ID</mat-label>
         <input matInput formControlName="username">
         <mat-error *ngIf="this.loginForm.get('username').invalid">You must provide a User ID</mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline">
-        <mat-label>Password</mat-label>
+        <mat-label>Introduce your password</mat-label>
         <input matInput type="password" formControlName="password" [type]="hidePassword ? 'password' : 'text'">
         <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
         <mat-error *ngIf="this.loginForm.get('password').invalid">You must provide a Password</mat-error>

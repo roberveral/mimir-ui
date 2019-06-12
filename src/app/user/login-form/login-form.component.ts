@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormGroupDirective } from '@angular
 import { UserService } from '../user.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ModelError } from 'src/app/api';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login-form',
@@ -20,6 +21,8 @@ export class LoginFormComponent implements OnInit {
   inProgress = false;
 
   @Output() authenticated = new EventEmitter<boolean>();
+
+  organizationName = environment.organizationName;
 
   constructor(private fb: FormBuilder,
               private userService: UserService) {}

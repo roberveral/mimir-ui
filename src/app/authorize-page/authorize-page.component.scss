@@ -5,6 +5,8 @@
 .checking {
     text-align: center;
     color: rgb(23, 88, 172);
+    padding-top: 6rem;
+    padding-bottom: 6rem;
 }
 
 .checking ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
@@ -18,4 +20,54 @@
 
 .error-reason {
     color: black;
+}
+
+.error-message {
+    color: red;
+    background-color: lightpink;
+}
+
+.authorize-header {
+    padding: 0.5rem;
+    padding-left: 1rem;
+    background-color: rgb(232, 232, 232);
+    color: grey;
+}
+
+.authorize-body {
+    padding: 0.5rem;
+}
+
+.organization {
+    color: rgb(23, 88, 172);
+}
+
+h1 {
+    font-weight: 300;
+}
+
+.main-card {
+    padding: 0;
+}
+
+.error-body {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 6rem;
+}
+
+.error-heading {
+    color: rgb(184, 17, 17);
+    text-align: center;
+    font-size: 5rem;
+    vertical-align: middle;
+}
+
+.error-display-heading {
+    color: rgb(184, 17, 17);
+}
+
+.error-display-value {
+    font-style: italic;
 }

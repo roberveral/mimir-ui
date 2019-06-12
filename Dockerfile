@@ -47,7 +47,7 @@ RUN rm -rf /usr/share/nginx/html/*
 COPY --from=build /app/dist /usr/share/nginx/html
 
 RUN echo "mainFileName=\"\$(ls /usr/share/nginx/html/main*.js)\" && \
-    envsubst '\$API_BASE_PATH ' < \${mainFileName} > main.tmp && \
+    envsubst '\$API_BASE_PATH \$MIMIR_ORGANIZATION_NAME ' < \${mainFileName} > main.tmp && \
     mv main.tmp  \${mainFileName} && nginx -g 'daemon off;'" > run.sh
 
 ENTRYPOINT ["sh", "run.sh"]

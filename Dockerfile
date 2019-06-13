@@ -39,9 +39,10 @@ RUN ng build --prod --output-path=dist
 FROM nginx:1.16.0-alpine
 
 COPY docker/default.conf /etc/nginx/conf.d/
+COPY docker/ssl-params.conf /etc/nginx/snippets/
 
 ## Remove default nginx website
-RUN rm -rf /usr/share/nginx/html/*
+RUN rm -rf /usr/share/nginx/html/* && mkdir -p /usr/share/nginx/certs
 
 # copy artifact build from the 'build environment'
 COPY --from=build /app/dist /usr/share/nginx/html
@@ -52,8 +53,8 @@ RUN echo "mainFileName=\"\$(ls /usr/share/nginx/html/main*.js)\" && \
 
 ENTRYPOINT ["sh", "run.sh"]
 
-# expose port 80
-EXPOSE 80
+# expose port 80 and 443
+EXPOSE 80 443
 
 # run nginx
 CMD ["nginx", "-g", "daemon off;"]

@@ -1,26 +1,24 @@
-<div fxLayout="row" fxLayoutAlign="start center">
+<div fxLayout="row wrap" fxLayoutAlign="start center">
 
-  <div class="logo-container" fxFlex="20" fxFlex.lt-sm="33" fxLayoutAlign="center center">
+  <div class="logo-container" fxFlex="10" fxFlex.lt-lg="20" fxFlex.lt-md="40" fxFlex.lt-sm="100" fxLayoutAlign="center center">
     <!-- Client logo block -->
     <img class="circle" [src]="getLogo()" alt="avatar">
   </div>
 
-  <div fxFlex="60" fxFlex.lt-sm="33" fxLayout="column" fxLayoutAlign="center start">
+  <div fxFlex="80" fxFlex.lt-lg="60" fxFlex.lt-md="60" fxFlex.lt-sm="100" fxLayout="column" fxLayoutAlign="center center">
     <!-- Client info block -->
     <div fxFlex>
       <!-- Client name block -->
-      <h1 class="client-name">{{client.name.toUpperCase()}}</h1>
-    </div>
-    <div fxFlex fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="0.5rem">
-      <!-- Client owner block -->
-      <mat-chip-list selectable=false>
-        <mat-chip color="primary">{{client.owner}} <mat-icon color="primary">verified_user</mat-icon></mat-chip>
-      </mat-chip-list>
+      <div fxLayout="row" fxLayoutGap="1rem" fxLayoutAlign="center center">
+        <h1 class="client-name">{{client.name.toUpperCase()}}</h1>
+        <mat-icon class="verified" matTooltip="This is a first-party verified application">verified_user</mat-icon>
+      </div>
+      
     </div>
   </div>
 
-  <div fxFlex="20" fxFlex.lt-sm="33" fxLayoutAlign="center center">
+  <div fxFlex="10" fxFlex.lt-lg="20" fxFlex.lt-md="100" fxLayoutAlign="center center">
     <!-- Client url block -->
-    <a mat-raised-button color="accent" [href]="client.url" target="_blank">SITE <mat-icon>open_in_new</mat-icon></a>
+    <a mat-raised-button class="home-url" [href]="client.url" target="_blank">Open <mat-icon>open_in_new</mat-icon></a>
   </div>
 </div>

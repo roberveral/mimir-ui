@@ -1,21 +1,24 @@
-<mat-card>
-  <app-client-header [client]="client"></app-client-header>
+<mat-card style="padding: 0;">
+  <app-client-header class="header" [client]="client"></app-client-header>
 
   <mat-divider></mat-divider>
 
-  <div *ngIf="expanded">
-    <h4>Client credentials</h4>
-    <app-client-credentials [client]="client"></app-client-credentials>
-  
-    <mat-divider></mat-divider>
-  
-    <h4>OAuth properties</h4>
-    <app-client-oauth-properties [client]="client"></app-client-oauth-properties>
+  <div class="info-body">
 
-    <mat-divider></mat-divider>
-  </div>
+    <div *ngIf="expanded">
+      <h4>Client credentials</h4>
+      <app-client-credentials [client]="client"></app-client-credentials>
+    
+      <mat-divider></mat-divider>
+    
+      <h4>OAuth properties</h4>
+      <app-client-oauth-properties [client]="client"></app-client-oauth-properties>
 
-  <div fxLayoutAlign="center center" (click)="expanded = !expanded" class="spaced">
-    <mat-icon>{{expanded ? 'expand_less' : 'expand_more'}}</mat-icon>
+      <mat-divider></mat-divider>
+    </div>
+
+    <div fxLayoutAlign="center center" (click)="expanded = !expanded" class="spaced">
+      <mat-icon>{{expanded ? 'expand_less' : 'expand_more'}}</mat-icon>
+    </div>
   </div>
 </mat-card>

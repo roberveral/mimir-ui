@@ -15,13 +15,13 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar>
       <button
         type="button"
         aria-label="Toggle sidenav"
         mat-icon-button
         (click)="toggleSidenav(drawer)">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        <mat-icon aria-label="Side nav toggle icon">{{!shouldToggle && isExpanded ? 'close' : 'menu'}}</mat-icon>
       </button>
       <div fxFlex fxLayout fxLayoutAlign="end center">
         <button mat-button [matMenuTriggerFor]="userMenu">

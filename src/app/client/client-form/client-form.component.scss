@@ -1,8 +1,12 @@
-a:link, a:visited, a:hover, a:active {
-    color: darkgray;
-}
-
 .error-message {
     color: red;
     background-color: lightpink;
 }
+
+::ng-deep .mat-step-header .mat-step-icon-selected {
+    background-color: rgb(23, 88, 172); 
+ }
+
+ .blue-button {
+     background: rgb(23, 88, 172);
+ }

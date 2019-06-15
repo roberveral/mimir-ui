@@ -17,4 +17,8 @@ export class ClientListComponent implements OnInit {
     this.clientStream = this.clientService.getAllClients();
   }
 
+  onClientDelete() {
+    this.clientStream = this.clientService.getAllClients();
+  }
+
 }

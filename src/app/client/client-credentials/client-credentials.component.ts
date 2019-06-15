@@ -16,5 +16,4 @@ export class ClientCredentialsComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

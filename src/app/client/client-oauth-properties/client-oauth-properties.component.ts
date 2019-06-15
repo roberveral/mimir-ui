@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Client } from 'src/app/api';
+import { Flow } from '../flow.model';
 
 @Component({
   selector: 'app-client-oauth-properties',
@@ -15,4 +16,7 @@ export class ClientOauthPropertiesComponent implements OnInit {
   ngOnInit() {
   }
 
+  getFlowForGrantType(grantType: String): Flow {
+    return Flow.getFlows().find(flow => grantType === flow.grantType);
+  }
 }

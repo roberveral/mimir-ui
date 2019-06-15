@@ -8,6 +8,7 @@ import { ClientCredentialsComponent } from './client-credentials/client-credenti
 import { ClientOauthPropertiesComponent } from './client-oauth-properties/client-oauth-properties.component';
 import { ClientPanelComponent } from './client-panel/client-panel.component';
 import { ClientListComponent } from './client-list/client-list.component';
+import { FlowComponent } from './flow/flow.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ClientListComponent } from './client-list/client-list.component';
     ClientCredentialsComponent,
     ClientOauthPropertiesComponent,
     ClientPanelComponent,
-    ClientListComponent
+    ClientListComponent,
+    FlowComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +31,8 @@ import { ClientListComponent } from './client-list/client-list.component';
     ClientCredentialsComponent,
     ClientOauthPropertiesComponent,
     ClientPanelComponent,
-    ClientListComponent
+    ClientListComponent,
+    FlowComponent
   ]
 })
 export class ClientModule { }

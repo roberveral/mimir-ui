@@ -17,3 +17,22 @@ h4 {
   padding-left: 1rem;
   background-color: rgb(243, 243, 243);
 }
+
+.credentials-body {
+    padding-bottom: 0.5rem;
+}
+
+.oauth-body {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.actions-body {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.delete {
+    background: rgb(184, 7, 7);
+    color: white;
+}

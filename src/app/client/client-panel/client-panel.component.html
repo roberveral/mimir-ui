@@ -6,13 +6,21 @@
   <div class="info-body">
 
     <div *ngIf="expanded">
-      <h4>Client credentials</h4>
-      <app-client-credentials [client]="client"></app-client-credentials>
-    
+      <div class="credentials-body">
+        <h4>Client credentials</h4>
+        <app-client-credentials [client]="client"></app-client-credentials>
+      </div>
+
       <mat-divider></mat-divider>
-    
-      <h4>OAuth properties</h4>
-      <app-client-oauth-properties [client]="client"></app-client-oauth-properties>
+      
+      <div class="oauth-body">
+        <h4>OAuth 2.0 properties</h4>
+        <app-client-oauth-properties [client]="client"></app-client-oauth-properties>
+      </div>
+
+      <div class="actions-body" fxLayout="row" fxLayoutAlign="end">
+        <button mat-raised-button type="button" class="delete" (click)="delete()">Delete Client <mat-icon>delete</mat-icon></button>
+      </div>
 
       <mat-divider></mat-divider>
     </div>

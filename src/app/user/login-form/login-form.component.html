@@ -25,7 +25,7 @@
           <mat-icon>error_outline</mat-icon> {{error.error_reason}}
         </mat-chip>
       </mat-chip-list>
-      <button mat-raised-button type="submit" color="primary" [disabled]="inProgress || loginForm.invalid">
+      <button mat-raised-button type="submit" class="login-button" [disabled]="inProgress || loginForm.invalid">
         <span *ngIf="!inProgress">Login</span>
         <span *ngIf="inProgress">Processing...</span>
       </button>

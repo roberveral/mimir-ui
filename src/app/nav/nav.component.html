@@ -24,12 +24,14 @@
         <mat-icon aria-label="Side nav toggle icon">{{!shouldToggle && isExpanded ? 'close' : 'menu'}}</mat-icon>
       </button>
       <div fxFlex fxLayout fxLayoutAlign="end center">
-        <button mat-button [matMenuTriggerFor]="userMenu">
-          <mat-icon>face</mat-icon>
-          <span fxHide.lt-md> {{userService.getLoggedUser().userID}}</span>
-        </button>
+        <app-user-picture style="max-width: 2.5rem;" [user]="userService.getLoggedUser()" [matMenuTriggerFor]="userMenu" [matTooltip]="userService.getLoggedUser().userID"></app-user-picture>
         <mat-menu #userMenu="matMenu">
-          <button mat-menu-item (click)="logout()"><mat-icon>cancel</mat-icon> Logout</button>
+          <div class="user-menu-greeting">
+            <span style="display: block;">Hi <span class="user-id">{{userService.getLoggedUser().name || userService.getLoggedUser().userID}}</span>!</span>
+            <span class="user-email"><mat-icon inline="true">email</mat-icon> {{userService.getLoggedUser().email}}</span>
+          </div>
+          <mat-divider></mat-divider>
+          <button mat-menu-item (click)="logout()"><mat-icon style="color: darkred;">cancel</mat-icon> Logout</button>
         </mat-menu>
       </div>
     </mat-toolbar>

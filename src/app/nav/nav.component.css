@@ -41,3 +41,20 @@ mat-toolbar {
 .space-right {
   min-width: 12rem;
 }
+
+.user-menu-greeting {
+  padding: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  color: gray;
+}
+
+.user-id {
+  color: rgb(10, 68, 143);
+  font-weight: 500;
+}
+
+.user-email {
+  font-size: 1rem;
+  color: rgb(23, 88, 172)
+}

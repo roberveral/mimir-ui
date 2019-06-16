@@ -58,3 +58,7 @@ mat-toolbar {
   font-size: 1rem;
   color: rgb(23, 88, 172)
 }
+
+.logout-icon {
+  color: rgb(184, 7, 7);
+}

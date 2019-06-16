@@ -5,8 +5,17 @@
 
 ::ng-deep .mat-step-header .mat-step-icon-selected {
     background-color: rgb(23, 88, 172); 
- }
+}
 
- .blue-button {
-     background: rgb(23, 88, 172);
- }
+.blue-button {
+    background: rgb(23, 88, 172);
+}
+
+::ng-deep .mat-checkbox-checked .mat-checkbox-background {
+    background-color: rgb(23, 88, 172) !important;
+}
+
+h4 {
+    font-weight: 300;
+    color: rgb(23, 88, 172);
+}

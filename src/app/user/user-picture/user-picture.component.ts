@@ -9,6 +9,8 @@ import { environment } from 'src/environments/environment';
 })
 export class UserPictureComponent implements OnInit {
 
+  private static DEFAULT_PICTURE = 'assets/images/unknown_user.png'; 
+
   @Input() user: User;
 
   pictureURL: string = '';
@@ -16,11 +18,19 @@ export class UserPictureComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.pictureURL = this.user.pictureURI || `${environment.profilePictureCDN}/${this.user.userID}.png`;
+    this.pictureURL = this.user.pictureURI || this.getPictureFromCDN();
+  }
+
+  getPictureFromCDN(): string {
+    if (!environment.profilePictureCDN || environment.profilePictureCDN === '') {
+      return UserPictureComponent.DEFAULT_PICTURE;
+    } else {
+      return environment.profilePictureCDN.replace('{}', this.user.userID);
+    }
   }
 
   fallbackToDefault() {
-    this.pictureURL = 'assets/images/unknown_user.png'
+    this.pictureURL = UserPictureComponent.DEFAULT_PICTURE;
   }
 
 }

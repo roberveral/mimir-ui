@@ -19,7 +19,8 @@ import {
   MatExpansionModule,
   MatMenuModule,
   MatToolbarModule,
-  MatSidenavModule
+  MatSidenavModule,
+  MatSnackBarModule
 } from '@angular/material';
 import { Configuration, ConfigurationParameters } from '../api';
 
@@ -44,7 +45,8 @@ import { Configuration, ConfigurationParameters } from '../api';
     MatListModule,
     MatMenuModule,
     MatToolbarModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatSnackBarModule
   ],
   exports: [
     FlexLayoutModule,
@@ -65,7 +67,8 @@ import { Configuration, ConfigurationParameters } from '../api';
     MatExpansionModule,
     MatMenuModule,
     MatToolbarModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatSnackBarModule
   ]
 })
 export class SharedModule { }

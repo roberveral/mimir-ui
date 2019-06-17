@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormGroupDirective, FormControl, AbstractControl } from '@angular/forms';
 import { ClientService, ClientInput, Client, ModelError } from 'src/app/api';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Flow } from '../flow.model';
 
 @Component({
   selector: 'app-client-form',
@@ -10,24 +11,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class ClientFormComponent implements OnInit {
 
-  grantTypes = [{
-    name: "Authorization Code",
-    value: "authorization_code",
-    infoURL: "https://www.oauth.com/oauth2-servers/server-side-apps/authorization-code/",
-    description: "Used in user-facing apps and consists in getting an authorization code to exchange for an access token on behalf of the user"
-  },
-  {
-    name: "Password",
-    value: "password",
-    infoURL: "https://www.oauth.com/oauth2-servers/access-tokens/password-grant/",
-    description: "Used in first-party native apps and consists in using the user credentials introduced in the application to obtain an access token on behalf of the user"
-  },
-  {
-    name: "Client Credentials",
-    value: "client_credentials",
-    infoURL: "https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/",
-    description: "Client uses its credentials to obtain an access token to act on its own behalf"
-  }]
+  flows = Flow.getFlows();
 
   clientForm: FormGroup;
 
@@ -50,7 +34,7 @@ export class ClientFormComponent implements OnInit {
         }),
         this.fb.group({
           redirect_uri: ['', [Validators.required, Validators.pattern('https?://.+')]],
-          grant_types: this.fb.array(this.grantTypes.map((o, i) => new FormControl(false)), this.minLengthArray(1))
+          flows: this.fb.array(this.flows.map((o, i) => new FormControl(false)), this.minLengthArray(1))
         })
       ])
     });
@@ -65,9 +49,9 @@ export class ClientFormComponent implements OnInit {
       url: this.clientForm.value.steps[0].url,
       logo: this.clientForm.value.steps[0].logo,
       redirect_uri: this.clientForm.value.steps[1].redirect_uri,
-      grant_types: this.clientForm.value.steps[1].grant_types.map((checked: boolean, i: number) => {
+      grant_types: this.clientForm.value.steps[1].flows.map((checked: boolean, i: number) => {
         if (checked) {
-          return this.grantTypes[i].value;
+          return this.flows[i].grantType;
         } else {
           return null;
         }

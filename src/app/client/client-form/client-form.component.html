@@ -23,12 +23,12 @@
             <mat-error *ngIf="this.clientForm.get('steps').get([0]).get('logo').hasError('pattern')">You must provide a valid URL</mat-error>
           </mat-form-field>
           <div fxLayoutAlign="end">
-            <button mat-mini-fab color="primary" matStepperNext type="button" [disabled]="clientForm.get('steps').get([0]).invalid"><mat-icon>navigate_next</mat-icon></button>
+            <button mat-mini-fab class="blue-button" matStepperNext type="button" [disabled]="clientForm.get('steps').get([0]).invalid"><mat-icon>navigate_next</mat-icon></button>
           </div>
         </div>
       </mat-step>
       <mat-step formGroupName="1" [stepControl]="clientForm.get('steps').get([1])" errorMessage="Missing required parameters">
-        <ng-template matStepLabel>OAuth Configuration</ng-template>
+        <ng-template matStepLabel>OAuth 2.0 Configuration</ng-template>
 
         <div fxLayout="column" fxLayoutGap="0.5rem">
           <mat-form-field appearance="outline">
@@ -39,16 +39,15 @@
             <mat-error *ngIf="this.clientForm.get('steps').get([1]).get('redirect_uri').hasError('pattern')">You must provide a valid URL</mat-error>
           </mat-form-field>
 
-          <h4>What Grant Types does the client require?</h4>
-          <div formArrayName="grant_types" *ngFor="let grantType of grantTypes; let i = index" >
+          <h4>What OAuth 2.0 flows does the client require?</h4>
+          <div formArrayName="flows" *ngFor="let flow of flows; let i = index" >
             <mat-checkbox [formControlName]="i">
-              {{grantType.name}}
-              <a [href]="grantType.infoURL" target="_blank"><mat-icon [matTooltip]="grantType.description">info</mat-icon></a>
+              <app-flow [flow]="flow"></app-flow>
             </mat-checkbox>
           </div>
 
           <div fxFlex fxLayout="row" fxLayoutAlign="end center">
-            <button mat-fab color="primary" type="submit" [disabled]="inProgress || clientForm.invalid"><mat-icon>add</mat-icon></button>
+            <button mat-fab class="blue-button" type="submit" [disabled]="inProgress || clientForm.invalid"><mat-icon>add</mat-icon></button>
           </div>
           <mat-chip-list fxLayoutAlign="center" selectable=false>
             <mat-chip class="error-message" *ngIf="error">

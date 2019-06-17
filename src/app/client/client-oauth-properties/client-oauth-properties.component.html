@@ -9,10 +9,11 @@
 
   <div fxFlex fxLayoutAlign="center center">
     <mat-list>
-      <h3 mat-subheader>Grant types</h3>
-      <mat-list-item *ngFor="let grant of client.grant_types">
+      <h3 mat-subheader>OAuth 2.0 Flows</h3>
+      <mat-list-item *ngFor="let grantType of client.grant_types">
         <mat-icon mat-list-icon color="primary">security</mat-icon>
-        <h4 mat-line>{{grant}}</h4>
+        <app-flow *ngIf="getFlowForGrantType(grantType)" [flow]="getFlowForGrantType(grantType)"></app-flow>
+        <h4 matLine *ngIf="!getFlowForGrantType(grantType)">{{grantType}}</h4>
       </mat-list-item>
     </mat-list>
   </div>

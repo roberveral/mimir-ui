@@ -1,0 +1,15 @@
+<div fxLayout="row" fxLayoutGap="0.2rem" fxLayoutAlign="center center">
+  <span>{{flow.name}}</span>
+  <button mat-icon-button type="button" class="info" matTooltip="Help"><mat-icon [matMenuTriggerFor]="flowInfo">help_outline</mat-icon></button>
+  <mat-menu #flowInfo="matMenu">
+    <div class="flow-info-body" fxLayout="column" fxLayoutGap="1rem">
+      <h4>{{flow.name}}</h4>
+      <span>{{flow.description}}</span>
+      <h6>Recommended for:</h6>
+      <mat-chip-list [selectable]="false" aria-label="Recommended apps">
+        <mat-chip *ngFor="let recommendation of flow.recommendedApps">{{recommendation}}</mat-chip>
+      </mat-chip-list>
+      <a mat-raised-button [href]="flow.infoURL" target="_blank">More info</a>
+    </div>
+  </mat-menu>
+</div>

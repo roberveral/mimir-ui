@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   apiBasePath: 'http://localhost:8000/v0',
-  organizationName: 'Mimir'
+  organizationName: 'Mimir',
+  profilePictureCDN: ''
 };
 
 /*

@@ -2,7 +2,7 @@
 
   <div class="logo-container" fxFlex="10" fxFlex.lt-lg="20" fxFlex.lt-md="40" fxFlex.lt-sm="100" fxLayoutAlign="center center">
     <!-- Client logo block -->
-    <img class="circle" [src]="getLogo()" alt="avatar">
+    <img class="circle" [src]="getLogo()" alt="avatar" #img [ngStyle]="{'height.px': img.offsetWidth}">
   </div>
 
   <div fxFlex="80" fxFlex.lt-lg="60" fxFlex.lt-md="60" fxFlex.lt-sm="100" fxLayout="column" fxLayoutAlign="center center">

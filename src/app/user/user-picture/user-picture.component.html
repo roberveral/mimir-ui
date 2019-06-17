@@ -1,3 +1,3 @@
-<div fxLayout="row" fxLayoutAlign="center center">
-  <img class="profile-image" [src]="pictureURL" alt="User's profile picture" (error)="fallbackToDefault()">
+<div class="image-cropper" fxLayout="row" fxLayoutAlign="center center">
+  <img class="profile-image" [src]="pictureURL" alt="User's profile picture" (error)="fallbackToDefault()" #img [ngStyle]="{'height.px': img.offsetWidth}">
 </div>

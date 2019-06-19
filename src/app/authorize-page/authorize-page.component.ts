@@ -29,7 +29,9 @@ export class AuthorizePageComponent implements OnInit {
         params.client_id,
         params.redirect_uri,
         params.scope,
-        params.state
+        params.state,
+        params.code_challenge,
+        params.code_challenge_method
       );
     }))
     .subscribe(

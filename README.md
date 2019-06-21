@@ -1,4 +1,6 @@
-# MimirUi
+# Mimir UI
+
+UI for [Mimir](https://github.com/roberveral/mimir) in orther to complete the OAuth 2.0 Authorization Server and OpenID Provider implementation.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 

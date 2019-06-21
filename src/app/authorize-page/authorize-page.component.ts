@@ -31,7 +31,9 @@ export class AuthorizePageComponent implements OnInit {
         params.scope,
         params.state,
         params.code_challenge,
-        params.code_challenge_method
+        params.code_challenge_method,
+        params.nonce,
+        params.max_age
       );
     }))
     .subscribe(

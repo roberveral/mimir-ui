@@ -74,10 +74,10 @@ export class OAuthService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public authorizeOAuthClient(responseType: 'code', clientId: string, redirectUri?: string, scope?: string, state?: string, codeChallenge?: string, codeChallengeMethod?: 'S256' | 'plain', observe?: 'body', reportProgress?: boolean): Observable<OAuthAuthorizeResponse>;
-    public authorizeOAuthClient(responseType: 'code', clientId: string, redirectUri?: string, scope?: string, state?: string, codeChallenge?: string, codeChallengeMethod?: 'S256' | 'plain', observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<OAuthAuthorizeResponse>>;
-    public authorizeOAuthClient(responseType: 'code', clientId: string, redirectUri?: string, scope?: string, state?: string, codeChallenge?: string, codeChallengeMethod?: 'S256' | 'plain', observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<OAuthAuthorizeResponse>>;
-    public authorizeOAuthClient(responseType: 'code', clientId: string, redirectUri?: string, scope?: string, state?: string, codeChallenge?: string, codeChallengeMethod?: 'S256' | 'plain', observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public authorizeOAuthClient(responseType: 'code', clientId: string, redirectUri?: string, scope?: string, state?: string, codeChallenge?: string, codeChallengeMethod?: 'S256' | 'plain', nonce?: string, maxAge?: number, observe?: 'body', reportProgress?: boolean): Observable<OAuthAuthorizeResponse>;
+    public authorizeOAuthClient(responseType: 'code', clientId: string, redirectUri?: string, scope?: string, state?: string, codeChallenge?: string, codeChallengeMethod?: 'S256' | 'plain', nonce?: string, maxAge?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<OAuthAuthorizeResponse>>;
+    public authorizeOAuthClient(responseType: 'code', clientId: string, redirectUri?: string, scope?: string, state?: string, codeChallenge?: string, codeChallengeMethod?: 'S256' | 'plain', nonce?: string, maxAge?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<OAuthAuthorizeResponse>>;
+    public authorizeOAuthClient(responseType: 'code', clientId: string, redirectUri?: string, scope?: string, state?: string, codeChallenge?: string, codeChallengeMethod?: 'S256' | 'plain', nonce?: string, maxAge?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (responseType === null || responseType === undefined) {
             throw new Error('Required parameter responseType was null or undefined when calling authorizeOAuthClient.');
         }
@@ -106,6 +106,12 @@ export class OAuthService {
         }
         if (codeChallengeMethod !== undefined && codeChallengeMethod !== null) {
             queryParameters = queryParameters.set('code_challenge_method', <any>codeChallengeMethod);
+        }
+        if (nonce !== undefined && nonce !== null) {
+            queryParameters = queryParameters.set('nonce', <any>nonce);
+        }
+        if (maxAge !== undefined && maxAge !== null) {
+            queryParameters = queryParameters.set('max_age', <any>maxAge);
         }
 
         let headers = this.defaultHeaders;
